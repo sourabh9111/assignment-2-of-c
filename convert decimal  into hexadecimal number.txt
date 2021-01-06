@@ -1,0 +1,30 @@
+#include <stdio.h>  
+#include <string.h>  
+
+int main() {  
+    char hexDigits[] = "0123456789ABCDEF"; 
+  
+    long decimalNumber;  
+    char hexadecimalNumber[40];  
+    int index, remaindar;  
+      
+    
+    printf("Enter a Decimal Number\n");  
+    scanf("%ld", &decimalNumber);   
+  
+    index = 0;
+     
+    while(decimalNumber != 0) {  
+        remaindar = decimalNumber % BASE_16;  
+        hexadecimalNumber[index] = hexDigits[remaindar];  
+        decimalNumber /= BASE_16;  
+        index++;  
+    }  
+    hexadecimalNumber[index] = '\0';  
+  
+    strrev(hexadecimalNumber);  
+  
+    printf("Hexadecimal Number : %s", hexadecimalNumber);  
+  
+    return 0;  
+}
